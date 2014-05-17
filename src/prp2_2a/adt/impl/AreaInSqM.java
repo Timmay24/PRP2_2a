@@ -39,37 +39,37 @@ final class AreaInSqM extends AbstractScalar implements Area {
     // ARITHMETIC OPERATIONS
     @Override
     public Area add(Area area) {
-        return new AreaInSqM(this.value() + area.value());
+        return AreaInSqM.valueOf(this.value() + area.value());
     }
     
     @Override
     public Area sub(Area area) {
-        
+        return AreaInSqM.valueOf(this.value() - area.value());
     }
     
     @Override
     public Area mul(double factor) {
-        
+        return AreaInSqM.valueOf(this.value() * factor);
     }
     
     @Override
     public Area div(double factor) {
-        
+        return AreaInSqM.valueOf(this.value() / factor);
     }
     
     @Override
     public double div(Area area) {
-        
+        return this.value() / area.value();
     }
     
     @Override
     public Volume mul(Length length) {
-        
+        return VolumeInCbM.valueOf(this.value() * length.value());
     }
     
     @Override
     public Length div(Length length) {
-        
+        return LengthInM.valueOf(this.value() / length.m());
     }
     
     
@@ -80,6 +80,7 @@ final class AreaInSqM extends AbstractScalar implements Area {
     }
     
     // STANDARD ACCESSOR
+
     @Override
     public double value() {
         return value(1.0);

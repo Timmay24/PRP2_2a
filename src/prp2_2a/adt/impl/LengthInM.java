@@ -42,6 +42,10 @@ final class LengthInM extends AbstractScalar implements Length {
         return new LengthInM(value, multiplier, M);
     }
     
+    public static Length valueOf(double value, LengthUnitEnum unit) {
+        return new LengthInM(value, 1.0, unit);
+    }
+    
     public static Length valueOf(double value) {
         return new LengthInM(value, 1.0, M);
     }
@@ -50,12 +54,12 @@ final class LengthInM extends AbstractScalar implements Length {
     // ARITHMETIC OPERATIONS
     @Override
     public Length add(Length length) {
-        return LengthInM.valueOf(this.value + length.m());
+        return LengthInM.valueOf(this.value + length.value());
     }
     
     @Override
     public Length sub(Length length) {
-        return LengthInM.valueOf(this.value - length.m());
+        return LengthInM.valueOf(this.value - length.value());
     }
     
     @Override
@@ -65,17 +69,17 @@ final class LengthInM extends AbstractScalar implements Length {
     
     @Override
     public Area mul(Length length) {
-        return AreaInSqM.valueOf(this.m() * length.m());
+        return AreaInSqM.valueOf(this.value * length.value());
     }
     
     @Override
     public Length div(double factor) {
-        return LengthInM.valueOf(this.m() / factor);
+        return LengthInM.valueOf(this.value / factor);
     }
     
     @Override
     public double div(Length length) {
-        return this.m() / length.m();
+        return this.value / length.value();
     }
     
     // ACCESSORS
@@ -115,6 +119,6 @@ final class LengthInM extends AbstractScalar implements Length {
     
     @Override
     public double ft() {
-        return LengthInM.this.value();
+        return LengthInM.this.value(FT);
     }
 }
