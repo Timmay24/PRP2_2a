@@ -8,4 +8,4 @@ package prp2_2a.adt.interfaces;
  *
  * @author Timmay
  */
-public interface Scalar {}
+public interface ScalarMarker extends ValueMarker {}
