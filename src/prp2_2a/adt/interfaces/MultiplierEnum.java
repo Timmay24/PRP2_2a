@@ -12,16 +12,15 @@ package prp2_2a.adt.interfaces;
  */
 public enum MultiplierEnum {
     
-    MICRO(0.000001),
-    MILLI(0.001),
-    CENTI(0.01),
-    DECI(0.1),
-    //BASE(1.0),
-    DEKA(10),
-    HECTO(100),
-    KILO(1000),
-    MEGA(1000000),
-    GIGA(1000000000);
+    MICRO(1E-6),
+    MILLI(1E-3),
+    CENTI(1E-2),
+    DECI(1E-1),
+    DEKA(1E1),
+    HECTO(1E2),
+    KILO(1E3),
+    MEGA(1E6),
+    GIGA(1E9);
     
     private double factor = 1.0;
     
